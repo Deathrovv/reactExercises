@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Count money Greece",
+      "day": "tomorrow",
+      "reminder": false
+    },
+    {
+      "text": "Creativity Seminar",
+      "day": "Sunday 15:00",
+      "reminder": false,
+      "id": 2
+    },
+    {
+      "text": "Routing",
+      "day": "Today",
+      "reminder": true,
+      "id": 3
+    }
+  ]
+}

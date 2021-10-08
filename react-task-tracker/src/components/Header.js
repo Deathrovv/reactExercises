@@ -1,19 +1,23 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
+import { useLocation } from "react-router";
 
 const Header = (props) => {
   //can use destructuring for props. Not using now to learn better
   //   const onClick = (e) => {
   //     console.log("click");
   //   };
+  const location = useLocation();
   return (
     <header className="header">
       <h1>{props.title}</h1>
-      <Button
-        color={props.showAdd ? "red" : "green"}
-        text={props.showAdd ? "Close" : "Add"}
-        onClick={props.onAdd}
-      />
+      {location.pathname === "/" && (
+        <Button
+          color={props.showAdd ? "red" : "green"}
+          text={props.showAdd ? "Close" : "Add"}
+          onClick={props.onAdd}
+        />
+      )}
     </header>
   );
 };
