@@ -3,21 +3,31 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
+  // useQuery,
+  useSubscription,
   useMutation,
   gql,
 } from "@apollo/client";
 // import { render } from "react-dom";
 // import { cli } from "webpack";
+import { WebSocketLink } from "@apollo/client/link/ws";
 import { Container, Row, Col, FormInput, Button } from "shards-react";
 
+const link = new WebSocketLink({
+  uri: "ws://localhost:4000/",
+  options: {
+    reconnect: true,
+  },
+});
+
 const client = new ApolloClient({
+  link,
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 
 const GET_MESSAGES = gql`
-  query {
+  subscription {
     messages {
       id
       content
@@ -33,9 +43,10 @@ const POST_MESSAGE = gql`
 `;
 
 const Messages = ({ user }) => {
-  const { data } = useQuery(GET_MESSAGES, {
-    pollInterval: 500,
-  });
+  const { data } = useSubscription(GET_MESSAGES);
+  // , { Polling is resource-hungry and inefficient. And amateurish
+  //   pollInterval: 500,
+  // }
   if (!data) return null;
 
   return (
@@ -85,7 +96,7 @@ const Messages = ({ user }) => {
 
 const Chat = () => {
   const [state, stateSet] = React.useState({
-    user: "Jack",
+    user: "Aro",
     content: "",
   });
   const [postMessage] = useMutation(POST_MESSAGE);
@@ -127,7 +138,9 @@ const Chat = () => {
           ></FormInput>
         </Col>
         <Col xs={2} style={{ padding: 0 }}>
-          <Button onClick={() => onSend()}>Send</Button>
+          <Button onClick={() => onSend()} style={{ width: "100%" }}>
+            Send
+          </Button>
         </Col>
       </Row>
     </Container>
