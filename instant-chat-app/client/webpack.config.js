@@ -4,7 +4,8 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://192.168.0.15:8080/",
+    // publicPath: "http://localhost:8080/",
   },
 
   resolve: {
@@ -12,9 +13,10 @@ module.exports = {
   },
 
   devServer: {
-    // host: "0.0.0.0",
+    host: "192.168.0.15",
     port: 8080,
-    useLocalIp: true,
+    hot: true,
+    // useLocalIp: true,
   },
 
   module: {
