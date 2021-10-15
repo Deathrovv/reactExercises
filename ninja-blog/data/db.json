@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "title": "My new website",
+      "body": "text goes here",
+      "author": "Aro",
+      "id": 1
+    },
+    {
+      "title": "Wilkomen nacht Schwartzenland",
+      "body": "text goes here",
+      "author": "Günther",
+      "id": 2
+    },
+    {
+      "title": "Web Dev for Dummies",
+      "body": "text goes here",
+      "author": "Colt",
+      "id": 3
+    }
+  ]
+}
