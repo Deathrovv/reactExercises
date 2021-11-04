@@ -40,12 +40,6 @@
       "title": "test",
       "body": "test",
       "author": "Rafaelo",
-      "id": 8
-    },
-    {
-      "title": "test",
-      "body": "test",
-      "author": "Rafaelo",
       "id": 9
     },
     {
@@ -65,12 +59,6 @@
       "body": "test",
       "author": "Rafaelo",
       "id": 13
-    },
-    {
-      "title": "test",
-      "body": "test",
-      "author": "Rafaelo",
-      "id": 14
     }
   ]
 }
