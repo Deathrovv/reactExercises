@@ -1,5 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useContext } from "react";
+import UserContext from "./User";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -10,6 +12,7 @@ const useStyles = createUseStyles({
 });
 
 export default function Navigation() {
+  const user = useContext(UserContext);
   const classes = useStyles();
-  return <div className={classes.wrapper}>Welcome, Kwame</div>;
+  return <div className={classes.wrapper}>Welcome, {user.name}</div>;
 }
